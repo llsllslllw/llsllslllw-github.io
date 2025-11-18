@@ -1,47 +1,77 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>BLESSED BE THE PENGUIN</title>
-<style>
-html, body {
-  height: 100%;
-  margin: 0;
-  background: #000;
-  color: #00ff00;
-  font-family: 'Courier New', monospace;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  white-space: pre; 
-}
-.container {
-  line-height: 1.2;
-}
-.cross {
-  color: #ff4444;
-  font-size: 48px;
-  margin-bottom: 20px;
-  display: block;
-}
-.ascii-tux {
-  color: #00ff00;
-  font-size: 20px;
-  line-height: 1.1;
-  margin-bottom: 30px;
-}
-.message {
-  font-size: 32px;
-  line-height: 1.5;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BLESSED BE THE PENGUIN</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      padding: 12px;
+      line-height: 1.2;
+      margin: 0 auto;
+    }
+    .cross {
+      color: #ff4444;
+      font-size: clamp(28px, 3.2vw, 48px);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .ascii-tux {
+      color: #00ff00;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .ascii-tux pre {
+      margin: 0 auto;
+      padding: 6px 8px;
+      font-family: 'Courier New', monospace;
+      font-size: clamp(12px, 2.4vw, 20px);
+      line-height: 1.05;
+      white-space: pre;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(0,0,0,0);
+      max-width: 100%;
+    }
+    .message {
+      font-size: clamp(18px, 4.2vw, 32px);
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    @media (min-width: 900px) {
+      html, body { padding: 40px; }
+      .container { padding: 18px; }
+      .ascii-tux pre { overflow-x: visible; font-size: 20px; }
+      .cross { font-size: 48px; margin-bottom: 20px; }
+      .message { font-size: 32px; }
+    }
+    @media (max-width: 420px) {
+      .container { padding: 8px; }
+      .ascii-tux pre { padding: 4px 6px; }
+    }
+    ::selection { background: rgba(255,255,255,0.12); color: #00ff00; }
+  </style>
 </head>
 <body>
-<div class="container">
-<span class="cross"></span>
-<div class="ascii-tux">
+  <div class="container">
+    <span class="cross"></span>
+    <div class="ascii-tux" aria-hidden="true">
+<pre>
        
                                                                   
                                                                
@@ -55,8 +85,9 @@ html, body {
     ##       # ###     ##     ##  ##     ##     ## ##    
     ##      ## ### #   ##     ##  ###   ###    ##   ##   
   ############  ###   ####   ####   #### ### ##### #####   
-</div>
-<div class="message">BLESSED BE THE PENGUIN. FCK MICROSOFT.</div>
-</div>
+</pre>
+    </div>
+    <div class="message">BLESSED BE THE PENGUIN. FCK MICROSOFT.</div>
+  </div>
 </body>
 </html>
